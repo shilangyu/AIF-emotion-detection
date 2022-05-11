@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "text_emotion_detection"
+
+[packages]
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+nltk = "*"
+jupyter = "*"
+ipykernel = "*"
+
+[dev-packages]
+jupyter = "*"
+ipykernel = "*"
+
+[requires]
+python_version = "3.10"
