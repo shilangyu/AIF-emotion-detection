@@ -10,6 +10,7 @@ jupyter = "*"
 ipykernel = "*"
 tensorflow = "*"
 scipy = "*"
+pydot = "*"
 
 [dev-packages]
 autopep8 = "*"
