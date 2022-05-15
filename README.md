@@ -1,11 +1,11 @@
 # Emotion detection
 
-Uses [Poetry](https://python-poetry.org) for python dependency management.
+Uses [Pipenv](https://pipenv.pypa.io/en/latest/) for python dependency management.
 
 ## Text
 
-In `text/` install dependencies with `poetry install`, then start the jupyter notebook with `poetry run jupyter notebook`.
+In `text/` install dependencies with `pipenv install`, then start the jupyter notebook with `pipenv run jupyter notebook`.
 
 ## Images
 
-In `image/` install dependencies with `poetry install`, then start the jupyter notebook with `poetry run jupyter notebook`.
+In `image/` install dependencies with `pipenv install`, then start the jupyter notebook with `pipenv run jupyter notebook`.
