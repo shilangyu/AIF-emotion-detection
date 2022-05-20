@@ -1,4 +1,4 @@
-import { disposeVariables, ready } from "@tensorflow/tfjs";
+import { ready } from "@tensorflow/tfjs";
 import { assocList, labelMax, predictVideo } from "./model";
 import "./style.css";
 import { initWebcam } from "./webcam";
@@ -24,7 +24,8 @@ async function predict() {
 
   if (++frame % 600 === 0) {
     // cleanup webgl textures every once in a while
-    disposeVariables();
+    // TODO: this fails to work, for some reason calling `model.predict` in `model.ts` causes the tf backend the corrupt
+    // disposeVariables();
   }
 
   requestAnimationFrame(predict);
