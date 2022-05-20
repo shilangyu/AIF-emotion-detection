@@ -1,5 +1,7 @@
 # Emotion detection
 
+[![](https://github.com/shilangyu/AIF-emotion-detection/workflows/image-demo-cd/badge.svg)](https://github.com/shilangyu/AIF-emotion-detection/actions)
+
 Uses [Pipenv](https://pipenv.pypa.io/en/latest/) for python dependency management.
 
 ## Text

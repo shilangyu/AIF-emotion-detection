@@ -1,0 +1,40 @@
+name: image-demo-cd
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - image/demo/**
+      - .github/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: image/demo
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+
+      - name: Install dependencies
+        run: |
+          npm --version
+          node --version
+          npm install
+
+      - name: Build
+        run: |
+          npm run build:gh-pages
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: image/demo/dist

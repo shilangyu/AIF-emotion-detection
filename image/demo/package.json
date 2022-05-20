@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:gh-pages": "tsc && vite build --base=/AIF-emotion-detection/",
     "preview": "vite preview"
   },
   "devDependencies": {
