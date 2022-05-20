@@ -11,6 +11,7 @@ ipykernel = "*"
 tensorflow = "*"
 scipy = "*"
 pydot = "*"
+tensorflowjs = "*"
 
 [dev-packages]
 autopep8 = "*"
