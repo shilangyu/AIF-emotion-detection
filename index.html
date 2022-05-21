@@ -5,17 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Facial emotion recognition</title>
-    <script type="module" crossorigin src="/AIF-emotion-detection/assets/index.2a0c80ca.js"></script>
-    <link rel="stylesheet" href="/AIF-emotion-detection/assets/index.423324e5.css">
+    <script type="module" crossorigin src="/AIF-emotion-detection/assets/index.b242dec0.js"></script>
+    <link rel="stylesheet" href="/AIF-emotion-detection/assets/index.7cb2ba5f.css">
   </head>
   <body>
     
 
     <h1>Facial emotion recognition</h1>
 
-    <video id="webcam" autoplay></video>
-    <span id="prediction"></span>
+    <video id="webcam" autoplay muted></video>
     <br />
-    <canvas width="48" height="48"></canvas>
+
+    <canvas id="preview" width="48" height="48"></canvas>
+
+    <h2 id="prediction"></h2>
+
+    <div style="height: 300px">
+      <canvas id="prediction-chart"></canvas>
+    </div>
   </body>
 </html>
