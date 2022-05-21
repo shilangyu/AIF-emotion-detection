@@ -11,9 +11,15 @@
 
     <h1>Facial emotion recognition</h1>
 
-    <video id="webcam" autoplay></video>
-    <span id="prediction"></span>
+    <video id="webcam" autoplay muted></video>
     <br />
-    <canvas width="48" height="48"></canvas>
+
+    <canvas id="preview" width="48" height="48"></canvas>
+
+    <h2 id="prediction"></h2>
+
+    <div style="height: 300px">
+      <canvas id="prediction-chart"></canvas>
+    </div>
   </body>
 </html>

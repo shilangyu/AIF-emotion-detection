@@ -1,4 +1,5 @@
 import { ready } from "@tensorflow/tfjs";
+import { setPrediction } from "./chart";
 import { assocList, labelMax, predictVideo } from "./model";
 import "./style.css";
 import { initWebcam } from "./webcam";
@@ -18,6 +19,9 @@ async function predict() {
     prediction.innerText = "";
   } else {
     const assoc = assocList(res);
+    if (import.meta.env.DEV && frame % 20 === 0) {
+      setPrediction(assoc);
+    }
 
     prediction.innerText = labelMax(assoc);
   }

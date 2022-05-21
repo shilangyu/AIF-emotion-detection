@@ -115,7 +115,10 @@ export async function predictVideo(
   if (import.meta.env.DEV) {
     const display = normalized.reshape(imageShape) as tf.Tensor2D;
 
-    await tf.browser.toPixels(display, document.querySelector("canvas")!);
+    await tf.browser.toPixels(
+      display,
+      document.querySelector("#preview") as HTMLCanvasElement
+    );
   }
 
   // a single batch -> a single output tensor

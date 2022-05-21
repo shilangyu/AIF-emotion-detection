@@ -18,6 +18,7 @@ export async function initWebcam(
       video: {
         width: webcamResolution,
         height: webcamResolution,
+        facingMode: "user",
       },
     });
 
