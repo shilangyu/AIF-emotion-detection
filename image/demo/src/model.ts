@@ -28,7 +28,9 @@ export const classes = [
   "surprise",
 ] as const;
 
-export const model = await tf.loadLayersModel("./model/model.json");
+export const model = await tf.loadLayersModel(
+  import.meta.env.VITE_TFJS_MODEL_URL
+);
 const blazeface = await loadBlazeface();
 
 function normalizeImage(image: tf.Tensor<tf.Rank.R3>): InputTensor {
