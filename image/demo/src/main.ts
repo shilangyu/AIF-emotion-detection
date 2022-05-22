@@ -13,6 +13,8 @@ await initWebcam(webcam, predict);
 let frame = 0;
 
 async function predict() {
+  if (frame === 0) document.querySelector("#loading")?.remove();
+
   const res = await predictVideo(webcam);
   if (!res) {
     // no face was found, don't predict anything
