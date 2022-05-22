@@ -61,10 +61,10 @@ async function findFace(
   const boxes = tf
     // normalize bounds to [0; 1]
     .tensor1d([
-      (face.topLeft as number[])[1] / image.shape[1],
-      (face.topLeft as number[])[0] / image.shape[0],
-      (face.bottomRight as number[])[1] / image.shape[1],
-      (face.bottomRight as number[])[0] / image.shape[0],
+      (face.topLeft as number[])[1] / image.shape[0],
+      (face.topLeft as number[])[0] / image.shape[1],
+      (face.bottomRight as number[])[1] / image.shape[0],
+      (face.bottomRight as number[])[0] / image.shape[1],
     ])
     .reshape([-1, 4]);
 
