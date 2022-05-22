@@ -4,6 +4,14 @@ import { assocList, labelMax, predictVideo } from "./model";
 import "./style.css";
 import { initWebcam } from "./webcam";
 
+declare global {
+  interface Window {
+    debug: boolean;
+  }
+}
+
+window.debug = import.meta.env.DEV;
+
 const webcam = document.querySelector("#webcam") as HTMLVideoElement;
 const prediction = document.querySelector("#prediction") as HTMLSpanElement;
 
@@ -21,7 +29,7 @@ async function predict() {
     prediction.innerText = "";
   } else {
     const assoc = assocList(res);
-    if (import.meta.env.DEV && frame % 20 === 0) {
+    if (window.debug && frame % 20 === 0) {
       setPrediction(assoc);
     }
 

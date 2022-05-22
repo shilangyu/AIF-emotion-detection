@@ -6,38 +6,7 @@ const ctx = canvas.getContext("2d")!;
 
 Chart.register(...registerables);
 
-const chart = new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: classes as unknown as string[],
-    datasets: [],
-  },
-  options: {
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    animation: false,
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 1,
-        title: {
-          display: true,
-          text: "Confidence",
-        },
-      },
-      x: {
-        title: {
-          display: true,
-          text: "Emotion",
-        },
-      },
-    },
-  },
-});
+let chart: Chart | undefined;
 
 const colors = [
   "#ff6384",
@@ -50,6 +19,39 @@ const colors = [
 ];
 
 export function setPrediction(assocList: [string, number][]) {
+  chart ??= new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: classes as unknown as string[],
+      datasets: [],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      animation: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 1,
+          title: {
+            display: true,
+            text: "Confidence",
+          },
+        },
+        x: {
+          title: {
+            display: true,
+            text: "Emotion",
+          },
+        },
+      },
+    },
+  });
+
   chart.data.datasets = [
     {
       data: assocList.map((e) => e[1]),

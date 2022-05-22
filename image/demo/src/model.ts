@@ -114,7 +114,7 @@ export async function predictVideo(
 
   const normalized = normalizeImage(faceImage);
 
-  if (import.meta.env.DEV) {
+  if (window.debug) {
     const display = normalized.reshape(imageShape) as tf.Tensor2D;
 
     await tf.browser.toPixels(
