@@ -12,3 +12,7 @@ h1 {
 video {
   clear: both;
 }
+
+.authors {
+  font-size: 7px;
+}
