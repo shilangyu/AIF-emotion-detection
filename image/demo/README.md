@@ -1,5 +1,18 @@
 # Demo of image emotion detection
 
+Description of the procedure:
+
+1. Models are downloaded
+2. Webcam is started
+3. In real-time every frame is processed:
+   1. Get a still image
+   2. Pass it to the [blazeface model](https://arxiv.org/abs/1907.05047) to extract the face
+   3. Normalize
+   4. Pass to our emotion detection model
+   5. Display resulting label (based off argmax of the output)
+4. If debug is on, a small preview of the processed input image is shown
+5. If debug is on, a bar chart with the output distribution is shown
+
 ## Prerequisites
 
 To run the demo locally you will need [node](https://nodejs.org/en/download) and `npm` installed on your system. A modern browser will also be needed (preferably a chromium-based one).
