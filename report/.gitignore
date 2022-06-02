@@ -1,0 +1,6 @@
+*.tmp
+
+# files generated during latex development
+__latexindent_temp.tex
+main.*
+!main.tex
