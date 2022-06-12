@@ -19,6 +19,8 @@
 \usepackage{xcolor}
 \usepackage{tocloft}
 \usepackage{hyperref}
+\usepackage{attachfile}
+
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -331,6 +333,26 @@ For the text emotion detection, the results were not satisfactory. The model obt
 \end{figure}
 
 
+\subsection{Demo}
+
+Using the trained model a demo app was prepared which recognizes emotions in real time (60 times per second) from a camera feed. The app was written in TypeScript using the JS interface of Tensorflow called Tensorflow.js. There, the exported keras model was imported and warmed up in the WebGL environment. The webcam is started and each frame is streamed through the recognition pipeline. First, using the blazeface model\cite{https://doi.org/10.48550/arxiv.1907.05047} a face is detected (or not) and the bounding box is returned. If a face was found, the image is cropped to the face and normalized to the expected input of our model (apply grayscale filter, resize, and reshape). Once done, the face image is fed to our model and a prediction is made and finally displayed (Fig. \ref{fig:demo}). In this case the label was determined based off the argmax of the final softmax layer, there was no threshold.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{assets/demo.png}
+	\caption{Demo app deployed to be available online}
+	\label{fig:demo}
+\end{figure}
+
+Additionally, the app can run in debug mode where the normalized image is shown together with the full prediction distribution (Fig. \ref{fig:demo-debug}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{assets/demo-debug.png}
+	\caption{Demo app showing the normalized input image and the output distribution}
+	\label{fig:demo-debug}
+\end{figure}
+
 \section{Conclusion}
 
 The results obtained from the image emotion recognition are very satisfactory. Despite the reported accuracy of only 67\%, in practice the model yielded very accurate predictions. In the prepared demo, the model fared well and was able to predict emotions very often. Drawbacks of our solution include a poor dataset (emotions are exaggerated) which causes it to fail to recognize subtle hints of emotions, and a not-so-sophisticated model (deep, but basic).
@@ -340,6 +362,15 @@ The results obtained from the image emotion recognition are very satisfactory. D
 However, the results obtained from text emotion recognition were not satisfactory. The model obtained 39\% accuracy on the test set. We suspect the failure was because of wrongly labeled dataset, since some samples were labeled by two labels. Also, while analyzed the data, we found that the labels were sometimes not accurate for the given sample.
 
 Due to that, we decided to not include text emotion recognition model in our GUI.
+
+\section{Attachments}
+
+\begin{enumerate}
+	\item {\textattachfile[color=0 0 1]{text_src.zip}{text\_src.zip} -- Source code of the text emotion detection notebook}
+	\item {\textattachfile[color=0 0 1]{image_src.zip}{image\_src.zip} -- Source code of the image emotion detection notebook}
+	\item {\textattachfile[color=0 0 1]{demo_src.zip}{demo\_src.zip} -- Source code of the demo for real-time webcam emotion detection}
+	      \item{} \url{https://github.com/shilangyu/AIF-emotion-detection} -- repository with all the whole work
+\end{enumerate}
 
 
 \bibliographystyle{ledgerbib}
