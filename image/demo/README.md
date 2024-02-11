@@ -34,4 +34,4 @@ The model has to be hosted somewhere. Since it's rather large (20MB+) it is not 
 
 ## Hosted version
 
-If my server is still running, you can find the hosted version at [shilangyu.dev/AIF-emotion-detection](https://shilangyu.dev/AIF-emotion-detection). Open the js console and enter `window.debug = true` to see some extra debug info.
+If my server is still running, you can find the hosted version at [github.shilangyu.dev/AIF-emotion-detection](https://github.shilangyu.dev/AIF-emotion-detection). Open the js console and enter `window.debug = true` to see some extra debug info.
